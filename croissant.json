@@ -22,6 +22,7 @@
     "@type": "sc:Dataset",
     "name": "BraveATA",
     "description": "BraveATA is a benchmark dataset for evaluating large language models on automatic theoretical analysis. Each example links metadata about a source theoretical result to natural-language targets and a formal Lean theorem statement.",
+    "url": "https://anonymous.4open.science/r/BraveATA-38BF",
     "license": "https://creativecommons.org/publicdomain/zero/1.0/",
     "conformsTo": [
         "http://mlcommons.org/croissant/1.1",
@@ -33,6 +34,7 @@
             "@id": "BraveATA_json",
             "name": "BraveATA.json",
             "description": "The single JSON file containing all BraveATA examples.",
+            "contentUrl": "https://anonymous.4open.science/r/BraveATA-38BF/BraveATA.json",
             "encodingFormat": "application/json"
         }
     ],
@@ -201,7 +203,7 @@
             "prov:type": {
                 "@id": "https://www.wikidata.org/wiki/Q4929239"
             },
-            "sc:description": "Collect accepted papers from NeurIPS, ICML, and ICLR of 2025."
+            "sc:description": "Collect accepted papers from NeurIPS, ICML, ICLR of 2025."
         },
         {
             "@type": "prov:Activity",
