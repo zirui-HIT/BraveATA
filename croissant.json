@@ -1,0 +1,214 @@
+{
+    "@context": {
+        "@vocab": "https://schema.org/",
+        "sc": "https://schema.org/",
+        "cr": "http://mlcommons.org/croissant/",
+        "rai": "http://mlcommons.org/croissant/RAI/",
+        "dct": "http://purl.org/dc/terms/",
+        "prov": "http://www.w3.org/ns/prov#",
+        "citeAs": "cr:citeAs",
+        "conformsTo": "dct:conformsTo",
+        "dataType": {
+            "@id": "cr:dataType",
+            "@type": "@vocab"
+        },
+        "extract": "cr:extract",
+        "field": "cr:field",
+        "fileObject": "cr:fileObject",
+        "jsonPath": "cr:jsonPath",
+        "recordSet": "cr:recordSet",
+        "source": "cr:source"
+    },
+    "@type": "sc:Dataset",
+    "name": "BraveATA",
+    "description": "BraveATA is a benchmark dataset for evaluating large language models on automatic theoretical analysis. Each example links metadata about a source theoretical result to natural-language targets and a formal Lean theorem statement.",
+    "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "conformsTo": [
+        "http://mlcommons.org/croissant/1.1",
+        "http://mlcommons.org/croissant/RAI/1.0"
+    ],
+    "distribution": [
+        {
+            "@type": "cr:FileObject",
+            "@id": "BraveATA_json",
+            "name": "BraveATA.json",
+            "description": "The single JSON file containing all BraveATA examples.",
+            "encodingFormat": "application/json"
+        }
+    ],
+    "recordSet": [
+        {
+            "@type": "cr:RecordSet",
+            "@id": "BraveATA_examples",
+            "description": "One record corresponds to one theoretical-analysis example.",
+            "key": {
+                "@id": "BraveATA_examples/idx"
+            },
+            "field": [
+                {
+                    "@type": "cr:Field",
+                    "@id": "BraveATA_examples/idx",
+                    "name": "idx",
+                    "description": "Unique example identifier.",
+                    "dataType": "sc:Text",
+                    "source": {
+                        "fileObject": {
+                            "@id": "BraveATA_json"
+                        },
+                        "extract": {
+                            "jsonPath": "$[*].metadata.idx"
+                        }
+                    }
+                },
+                {
+                    "@type": "cr:Field",
+                    "@id": "BraveATA_examples/conference",
+                    "name": "conference",
+                    "description": "Conference venue and year of the source paper.",
+                    "dataType": "sc:Text",
+                    "source": {
+                        "fileObject": {
+                            "@id": "BraveATA_json"
+                        },
+                        "extract": {
+                            "jsonPath": "$[*].metadata.conference"
+                        }
+                    }
+                },
+                {
+                    "@type": "cr:Field",
+                    "@id": "BraveATA_examples/source_paper",
+                    "name": "source_paper",
+                    "description": "Title of the source paper.",
+                    "dataType": "sc:Text",
+                    "source": {
+                        "fileObject": {
+                            "@id": "BraveATA_json"
+                        },
+                        "extract": {
+                            "jsonPath": "$[*].metadata.source_paper"
+                        }
+                    }
+                },
+                {
+                    "@type": "cr:Field",
+                    "@id": "BraveATA_examples/source_statement",
+                    "name": "source_statement",
+                    "description": "Identifier of the source theorem, proposition, lemma, or other mathematical statement.",
+                    "dataType": "sc:Text",
+                    "source": {
+                        "fileObject": {
+                            "@id": "BraveATA_json"
+                        },
+                        "extract": {
+                            "jsonPath": "$[*].metadata.source_statement"
+                        }
+                    }
+                },
+                {
+                    "@type": "cr:Field",
+                    "@id": "BraveATA_examples/core_claim",
+                    "name": "core_claim",
+                    "description": "A concise natural-language summary of the central claim.",
+                    "dataType": "sc:Text",
+                    "source": {
+                        "fileObject": {
+                            "@id": "BraveATA_json"
+                        },
+                        "extract": {
+                            "jsonPath": "$[*].natural_language.core_claim"
+                        }
+                    }
+                },
+                {
+                    "@type": "cr:Field",
+                    "@id": "BraveATA_examples/informal_theorem",
+                    "name": "informal_theorem",
+                    "description": "Natural-language theorem statement.",
+                    "dataType": "sc:Text",
+                    "source": {
+                        "fileObject": {
+                            "@id": "BraveATA_json"
+                        },
+                        "extract": {
+                            "jsonPath": "$[*].natural_language.informal_theorem"
+                        }
+                    }
+                },
+                {
+                    "@type": "cr:Field",
+                    "@id": "BraveATA_examples/informal_proof",
+                    "name": "informal_proof",
+                    "description": "Natural-language proof sketch or proof explanation.",
+                    "dataType": "sc:Text",
+                    "source": {
+                        "fileObject": {
+                            "@id": "BraveATA_json"
+                        },
+                        "extract": {
+                            "jsonPath": "$[*].natural_language.informal_proof"
+                        }
+                    }
+                },
+                {
+                    "@type": "cr:Field",
+                    "@id": "BraveATA_examples/src_header",
+                    "name": "src_header",
+                    "description": "Lean source header or imports required for the formal theorem.",
+                    "dataType": "sc:Text",
+                    "source": {
+                        "fileObject": {
+                            "@id": "BraveATA_json"
+                        },
+                        "extract": {
+                            "jsonPath": "$[*].formal_language.src_header"
+                        }
+                    }
+                },
+                {
+                    "@type": "cr:Field",
+                    "@id": "BraveATA_examples/formal_theorem",
+                    "name": "formal_theorem",
+                    "description": "Lean formal theorem statement associated with the example.",
+                    "dataType": "sc:Text",
+                    "source": {
+                        "fileObject": {
+                            "@id": "BraveATA_json"
+                        },
+                        "extract": {
+                            "jsonPath": "$[*].formal_language.formal_theorem"
+                        }
+                    }
+                }
+            ]
+        }
+    ],
+    "usageInfo": "The BraveATA annotations, metadata, benchmark structure, and author-created target statements are released under CC0 1.0. Any source-paper excerpts or source-paper identifiers, if included, remain subject to the licenses and copyrights of the original papers; users should cite the original papers where applicable.",
+    "rai:dataLimitations": "BraveATA focuses on theoretical-analysis examples from selected 2025 machine-learning conference papers. It should not be treated as representative of all mathematical reasoning, all formal verification tasks, or all ML theory literature. Results may depend on the selected venues, papers, theorem styles, Lean formalization conventions, and the quality of the natural-language and formal targets.",
+    "rai:dataBiases": "The dataset may reflect selection bias toward accepted papers, particular ML theory subareas, English-language academic writing, and theorem statements that can be usefully converted into the benchmark format. It may underrepresent other venues, languages, proof styles, and domains outside ML theory.",
+    "rai:personalSensitiveInformation": "The dataset is derived from public academic papers and benchmark annotations. It is not intended to contain personal or sensitive information about individuals. Authors should verify that the final JSON file does not include reviewer identities, private notes, email addresses, or other non-public information.",
+    "rai:dataUseCases": "Intended use cases include evaluating models on theoretical-analysis understanding, informal theorem/proof generation, and formal Lean theorem-statement generation. The dataset is not intended to evaluate complete mathematical proof correctness, human mathematical ability, or broad scientific truth beyond the included examples.",
+    "rai:dataSocialImpact": "Potential benefits include improved evaluation of model reasoning over ML theory and clearer benchmarking for formalization-oriented systems. Potential risks include overclaiming model mathematical ability, memorization or leakage from source papers, and misuse as evidence of general theorem-proving competence. Users should report limitations and cite source papers where applicable.",
+    "rai:hasSyntheticData": true,
+    "prov:wasDerivedFrom": [
+        {
+            "@id": "Publicly available ICLR 2025, ICML 2025, and NeurIPS 2025 theoretical-analysis papers referenced in the source_paper and source_statement fields."
+        }
+    ],
+    "prov:wasGeneratedBy": [
+        {
+            "@type": "prov:Activity",
+            "prov:type": {
+                "@id": "https://www.wikidata.org/wiki/Q4929239"
+            },
+            "sc:description": "Collect accepted papers from NeurIPS, ICML, and ICLR of 2025."
+        },
+        {
+            "@type": "prov:Activity",
+            "prov:type": {
+                "@id": "https://www.wikidata.org/wiki/Q109719325"
+            },
+            "sc:description": "Annotate necessary information for automated theoretical analysis."
+        }
+    ]
+}

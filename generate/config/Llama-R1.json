@@ -1,0 +1,11 @@
+{
+    "ignore_too_long": false,
+    "batch_size": 256,
+    "max_tokens": 32768,
+    "n": 16,
+    "stop": [
+        "<|eot_id|>",
+        "<|end_of_text|>",
+        "<｜end▁of▁sentence｜>"
+    ]
+}
