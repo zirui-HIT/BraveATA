@@ -1,25 +1,3 @@
----
-pretty_name: "BraveATA"
-license: "cc0-1.0"
-language:
-- en
-size_categories:
-- n<1K
-task_categories:
-- text-generation
-- question-answering
-tags:
-- llm-evaluation
-- mathematical-reasoning
-- theorem-proving
-- autoformalization
-- lean4
-- formal-methods
-- benchmark
-- croissant
-- responsible-ai
----
-
 # BraveATA
 
 **BraveATA** (**BR**oad **A**nd **V**erifiable **E**nd-to-End **A**utomated **T**heoretical **A**nalysis) is a benchmark for evaluating whether large language models can carry out theoretical analysis of LLM-related research claims.
